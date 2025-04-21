@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>jh bday!</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="img/boton.png"></link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</style>
+  </head>
+
+<body>
+    <div class="main" id="main">
+        <img src="img/main.png" class="img-main">
+        <div class="boton" onclick="iniciarTransicion()">
+            <img src="img/boton.png" class="img-boton">
+        </div>
+        <audio id="sonido-clic" src="audio/click-sonido.mp3" preload="auto"></audio>
+    </div>
+
+    <div class="pantalla-final" id="pantallaFinal">
+      <div class="pant-final">
+        <img src="img/papota.png" class="img-final" id="imgFinal" onclick="mostrarVideo()">
+  
+        <div class="contenedor-video" id="contenedorVideo">
+          <div class="barra-superior">
+            <span class="titulo">¿qué sería de mí sin vos?</span>
+            <div class="botones">
+              <img src="img/icon-min.jpg" alt="Minimizar" class="btn-ventana">
+              <img src="img/icon-x.jpg" alt="Cerrar" class="btn-ventana">
+            </div>
+            </div>
+            <div class="contenido-ventana">
+          <video id="videoSorpresa" class="video-sorpresa video-js" controls>
+            <source src="video/video.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+          </video>
+        </div>
+        </div>
+        </div>
+      </div>
+
+
+      <script>
+        function iniciarTransicion() {
+          const sonido = document.getElementById("sonido-clic");
+          sonido.currentTime = 0;
+          sonido.play();
+    
+          // Transición de fondo
+          document.body.classList.add("fondo-cambiado");
+    
+          // Oculta el contenedor principal
+          document.getElementById("main").classList.add("ocultar");
+    
+          // Muestra el nuevo contenido luego de la transición
+          setTimeout(() => {
+            document.getElementById("pantallaFinal").classList.add("mostrar");
+          }, 1000);
+        }
+
+        function iniciarTransicion() {
+    const sonido = document.getElementById("sonido-clic");
+    sonido.currentTime = 0;
+    sonido.play();
+
+    document.body.classList.add("fondo-cambiado");
+    document.getElementById("main").classList.add("ocultar");
+
+    setTimeout(() => {
+      document.getElementById("pantallaFinal").classList.add("mostrar");
+    }, 1000);
+  }
+
+  function mostrarVideo() {
+    const imagen = document.getElementById("imgFinal");
+    const contenedorVideo = document.getElementById("contenedorVideo");
+    const video = document.getElementById("videoSorpresa");
+
+    imagen.classList.add("animada");
+    contenedorVideo.classList.add("mostrar");
+
+    requestAnimationFrame(() => {
+    setTimeout(() => {
+      video.play();
+    }, 300);
+  });
+  }
+      </script>
+</body>
+</html>
