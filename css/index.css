@@ -182,8 +182,9 @@ body.fondo-cambiado {
 }
 
 video {
-  max-height: 50vh;
-  height: auto;
+  width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
 }
 
 .img-final {
